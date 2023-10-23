@@ -182,7 +182,6 @@ int main(int argc, char *argv[]) {
          << "  L1_WRITE_POLICY:" << setw(19) << argv[5] << endl
          << "  trace_file:" << setw(24) << argv[6] << endl
          << "  ===================================" << endl;
-
     Cache cache(!atoi(argv[4]), !atoi(argv[5]), atoi(argv[1]), atoi(argv[3]),
                 atoi(argv[2]) / atoi(argv[1]) / atoi(argv[3]));
     FILE *fp = fopen(argv[6], "r");
@@ -196,6 +195,7 @@ int main(int argc, char *argv[]) {
         (line[0] == 'r') ? cache.readFromAddress(addr) :
                            cache.writeToAddress(addr);
     }
+    fclose(fp);
     cache.outputResult();
     return 0;
 }
