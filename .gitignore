@@ -1,0 +1,5 @@
+.*
+!/.gitignore
+src/sim_cache
+src/*.exe
+src/*.o
